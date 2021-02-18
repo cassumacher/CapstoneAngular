@@ -1,0 +1,30 @@
+<div class="row mt-5">
+    <h1>
+        <ul>ID: {{myemployee.id}}</ul>
+        <ul>Name: {{myemployee.name}}</ul>
+        <ul>Email: {{myemployee.email}}</ul>
+        <ul>Device: {{myemployee.device}}</ul>
+        
+           
+</h1>
+</div>
+
+<button [hidden]="toggle" class="btn btn-primary" style="margin: 4px 2px" (click)="toggle=!toggle">Edit Employees</button>
+<button class="btn btn-primary" style="margin: 4px 2px" (click)="delete(myemployee.idDB)">Delete Employee</button>
+
+<div class="row mt-3">
+    <div class="col">
+        <form *ngIf="toggle" [formGroup]="myform" (ngSubmit)="editemployee(myemployee)">
+            <input class="form-control" type="number" name="id" placeholder="employee's id" formControlName="id">
+            <input class="form-control" type="text" name="name" placeholder="name" formControlName="name">
+            <input class="form-control" type="text" name="email" placeholder="email" formControlName="email">               
+            
+            <input class="form-control" type="text" name="device" placeholder="assign a device" formControlName="device">         
+            
+            <button class="btn btn-primary" type="submit">Edit Employee</button>
+            
+        </form>
+    </div>
+</div>
+
+

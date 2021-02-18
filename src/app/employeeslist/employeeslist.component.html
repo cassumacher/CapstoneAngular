@@ -1,0 +1,23 @@
+<div class="row mt-5">
+    <div *ngFor="let employee of employeelist" class="card-header col-12">
+        
+            <h3> Employee's ID: {{employee.id}}</h3>
+            <button  type="button" class="btn btn-outline-info"
+             (click)="selectedemployee(employee)"> Details</button>
+    </div>
+</div>
+
+<button [hidden]='toggle' class='btn btn-primary mt-3' (click)="toggle=!toggle">Add Employee</button>
+
+<div class="row mt-3">
+    <div class="col">
+        <form *ngIf="toggle" [formGroup]="myform" (ngSubmit)="addemployee()">
+            <input class="form-control" type="number" name="id" placeholder="employee's id" formControlName="id">
+            <input class="form-control" type="text" name="name" placeholder="name" formControlName="name">
+            <input class="form-control" type="text" name="email" placeholder="email" formControlName="email">
+            
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+ <div class="container-fluid">
+  <app-header (changedpage)=changeselector($event)> </app-header>
+    <div [ngSwitch]="selector">
+      <app-employees *ngSwitchCase="'employees'"></app-employees>
+      <app-devices *ngSwitchCase="'devices'"></app-devices>
+    </div>
+  
+  </div>
+  
